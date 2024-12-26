@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <div className={` ${!theme ? 'white' : 'text-red-500'} text-center md:text-2xl mb-8 text-lg`}>
      <p>Hello</p>
+     <h1>WELCOME</h1>
     </div>
   );
 }
