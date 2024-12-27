@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+import profilepng from '../../../assets/profile .jpeg'
 
 // interface SidebarProps {}
 
@@ -84,10 +86,27 @@ function Sidebar() {
                     </div>
                 </ul>
             </nav>
-            <div className="p-6">
-                <p className="font-bold">Chukwuke Chisom</p>
-                <p className="text-sm">Co-founder</p>
-                <button className="mt-4 bg-white text-main-blue py-2 px-4 rounded">Logout</button>
+            <div className="p-6 flex flex-col">
+                <div className=' flex  items-center'>
+                    <Image
+                        src={profilepng}
+                        alt="Profile"
+                        className="w-8 h-8 rounded-full"
+                    />
+                    <div className='flex flex-col p-2'>
+                        <p className="font-bold">Chukwuke Chisom</p>
+                        <p className="text-sm">Co-founder</p>
+                    </div>
+                </div>
+                
+                <div className='w-[143px] bg-white flex rounded-lg items-center justify-center'>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.87999 12.07C7.87999 11.66 8.21999 11.32 8.62999 11.32H14.11V2.86C14.1 2.38 13.72 2 13.24 2C7.34999 2 3.23999 6.11 3.23999 12C3.23999 17.89 7.34999 22 13.24 22C13.71 22 14.1 21.62 14.1 21.14V12.81H8.62999C8.20999 12.82 7.87999 12.48 7.87999 12.07Z" fill="#032459" />
+                        <path d="M20.54 11.54L17.7 8.68997C17.41 8.39997 16.93 8.39997 16.64 8.68997C16.35 8.97997 16.35 9.45997 16.64 9.74997L18.2 11.31H14.1V12.81H18.19L16.63 14.37C16.34 14.66 16.34 15.14 16.63 15.43C16.78 15.58 16.97 15.65 17.16 15.65C17.35 15.65 17.54 15.58 17.69 15.43L20.53 12.58C20.83 12.3 20.83 11.83 20.54 11.54Z" fill="#032459" />
+                    </svg>
+
+                    <button className=" bg-white text-main-blue py-2 px-4 ">Logout</button>
+                </div>
             </div>
         </div>
     );
