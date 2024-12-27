@@ -1,6 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-import profilepng from '../../../assets/profile .jpeg'
 
 // interface SidebarProps {}
 
@@ -29,8 +27,7 @@ function Sidebar() {
 
                         <li className="text-sm align-center m-2 hover:rounded-lg  hover:text-main-blue w-5/6">Dashboard</li>
                     </div>
-
-                    <div className="m-4 w-[376px] h-[56px] rounded-[8px] px-[32px] py-[16px] gap-[8px] hover:bg-white flex items-center  hover:text-main-blue hover:col ">
+                    <div className="m-4 w-[376px] h-[56px] rounded-[8px] px-[32px] py-[16px] gap-[8px] hover:bg-white flex items-center  hover:text-main-blue ">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.53 7.77C17.46 7.76 17.39 7.76 17.32 7.77C15.77 7.72 14.54 6.45 14.54 4.89C14.54 3.3 15.83 2 17.43 2C19.02 2 20.32 3.29 20.32 4.89C20.31 6.45 19.08 7.72 17.53 7.77Z" fill="white" />
                             <path d="M20.79 14.7C19.67 15.45 18.1 15.73 16.65 15.54C17.03 14.72 17.23 13.81 17.24 12.85C17.24 11.85 17.02 10.9 16.6 10.07C18.08 9.87004 19.65 10.15 20.78 10.9C22.36 11.94 22.36 13.65 20.79 14.7Z" fill="white" />
@@ -43,7 +40,6 @@ function Sidebar() {
 
                         <li className="text-sm align-center m-2 hover:rounded-lg  hover:text-main-blue w-5/6">Students</li>
                     </div>
-
                     <div className="m-4 w-[376px] h-[56px] rounded-[8px] px-[32px] py-[16px] gap-[8px] hover:bg-white flex items-center  hover:text-main-blue ">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.8301 15.64C17.5001 15.2 18.3801 15.68 18.3801 16.48V17.77C18.3801 19.04 17.3901 20.4 16.2001 20.8L13.0101 21.86C12.4501 22.05 11.5401 22.05 10.9901 21.86L7.80012 20.8C6.60012 20.4 5.62012 19.04 5.62012 17.77V16.47C5.62012 15.68 6.50012 15.2 7.16012 15.63L9.22012 16.97C10.0101 17.5 11.0101 17.76 12.0101 17.76C13.0101 17.76 14.0101 17.5 14.8001 16.97L16.8301 15.64Z" fill="white" />
@@ -88,26 +84,10 @@ function Sidebar() {
                     </div>
                 </ul>
             </nav>
-            <div className="p-6   flex flex-col">
-                <div className='flex items-center' >
-                    <Image
-                        src={profilepng}
-                        alt="Profile"
-                        className="w-8 h-8 rounded-full"
-                    />
-                    <div className=' flex flex-col m-2'>
-                        <p className="font-bold">Chukwuke Chisom</p>
-                        <p className="text-sm">Co-founder</p>
-                    </div>
-                </div>
-                <div className='bg-white flex items-center w-[143px] rounded-lg justify-center align-text-top'>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.87999 12.07C7.87999 11.66 8.21999 11.32 8.62999 11.32H14.11V2.86C14.1 2.38 13.72 2 13.24 2C7.34999 2 3.23999 6.11 3.23999 12C3.23999 17.89 7.34999 22 13.24 22C13.71 22 14.1 21.62 14.1 21.14V12.81H8.62999C8.20999 12.82 7.87999 12.48 7.87999 12.07Z" fill="#032459" />
-                        <path d="M20.5401 11.54L17.7001 8.69C17.4101 8.4 16.9301 8.4 16.6401 8.69C16.3501 8.98 16.3501 9.46 16.6401 9.75L18.2001 11.31H14.1001V12.81H18.1901L16.6301 14.37C16.3401 14.66 16.3401 15.14 16.6301 15.43C16.7801 15.58 16.9701 15.65 17.1601 15.65C17.3501 15.65 17.5401 15.58 17.6901 15.43L20.5301 12.58C20.8301 12.3 20.8301 11.83 20.5401 11.54Z" fill="#032459" />
-                    </svg>
-
-                    <button className="bg-white text-main-blue py-2">Logout</button>
-                </div>
+            <div className="p-6">
+                <p className="font-bold">Chukwuke Chisom</p>
+                <p className="text-sm">Co-founder</p>
+                <button className="mt-4 bg-white text-main-blue py-2 px-4 rounded">Logout</button>
             </div>
         </div>
     );
