@@ -3,10 +3,10 @@ import { useRef } from 'react'
 import { makeStore, AppStore } from '@/lib/store'
 import { setThemeState } from '@/lib/features/theme/themeSlice'
 import { Provider } from 'react-redux'
-import { persistStore } from "redux-persist";
+import { persistStore } from 'redux-persist'
 
 export default function StoreProvider({
-  children
+  children,
 }: {
   children: React.ReactNode
 }) {
@@ -18,10 +18,7 @@ export default function StoreProvider({
     storeRef.current.dispatch(setThemeState(false))
   }
   // const store = makeStore()
-  persistStore(storeRef.current);
+  persistStore(storeRef.current)
 
-  return <Provider store={storeRef.current}> 
-  
-  {children}
-  </Provider>
+  return <Provider store={storeRef.current}>{children}</Provider>
 }

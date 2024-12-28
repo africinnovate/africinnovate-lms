@@ -14,7 +14,9 @@ const eslintConfig = [
   {
     rules: {
       quotes: ["error", "single"],
-      semi: ["error", "always"]
+      semi: ["error", "never"],
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-explicit-any": "off"
     },
   },
 ];
