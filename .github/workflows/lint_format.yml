@@ -1,0 +1,39 @@
+name: Lint and Format
+
+on:
+  pull_request:
+    branches: [ main, dev ]
+    
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'pnpm'
+
+    - name: Install pnpm
+      run: npm install -g pnpm
+        
+    - name: Install dependencies
+      run: pnpm install
+      
+    - name: Check Prettier formatting
+      run: pnpm run format:check
+      
+    - name: Run ESLint
+      run: pnpm run lint
+      env:
+        CI: true
+
+lint-fail:
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint or Prettier Failed
+        run: echo "Lint or Prettier check failed. Please fix the issues and push the changes."

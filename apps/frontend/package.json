@@ -6,9 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "next lint --fix --dir src",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css,scss}'"
   },
   "dependencies": {
     "@mui/icons-material": "^6.2.1",
