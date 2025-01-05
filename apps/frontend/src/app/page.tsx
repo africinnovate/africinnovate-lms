@@ -1,5 +1,5 @@
 'use client'
-import { useAppSelector } from '@/lib/hooks'
+import { useAppSelector } from '@/lib/hooks';
 
 export default function Home() {
 	const theme = useAppSelector(
