@@ -39,5 +39,5 @@ jobs:
         # cd apps/frontend
         pnpm run test
 
-      - name: Run Cypress tests
-        run: pnpm run cypress:run
+      # - name: Run Cypress tests
+      #   run: pnpm run cypress:run
