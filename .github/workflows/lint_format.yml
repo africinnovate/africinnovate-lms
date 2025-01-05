@@ -30,7 +30,7 @@ jobs:
 
       - name: Run ESLint
         run: |
-          cd app/frontend
+          cd apps/frontend
           npx eslint "**/*.{js,jsx,ts,tsx}"
 
       - name: Run Prettier Check
