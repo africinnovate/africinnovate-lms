@@ -29,7 +29,7 @@ jobs:
         run: pnpm install
 
       - name: Print .prettierignore contents
-        run: cat .prettierignore
+        run: cat apps/frontend/.prettierignore
 
       - name: Run ESLint
         run: |
@@ -37,7 +37,7 @@ jobs:
           npx eslint "**/*.{js,jsx,ts,tsx}"
 
       - name: Run Prettier Check
-        run: npx prettier --check '**/*.{js,jsx,ts,tsx}' --ignore-path .prettierignore
+        run: npx prettier --check '**/*.{js,jsx,ts,tsx}' --ignore-path apps/frontend/.prettierignore
 
       - name: Lint and Format Status
         if: ${{ failure() }}
