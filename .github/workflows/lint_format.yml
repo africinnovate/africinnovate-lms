@@ -22,14 +22,20 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store              # Path to pnpm cache store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}   # Cache key based on pnpm-lock.yaml
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+
       - name: Install pnpm
         run: npm install -g pnpm
         
       - name: Install dependencies
         run: pnpm install
-
-      - name: Print .prettierignore contents
-        run: cat apps/frontend/.prettierignore
 
       - name: Run ESLint
         run: |

@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    needs: lint-and-format
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2        # Checkout the code
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Cache pnpm dependencies    # Caching pnpm store
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store            # Path to pnpm cache store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}   # Cache key based on pnpm-lock.yaml
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install dependencies       # Run pnpm install if cache is not found
+        run: pnpm install
+
+      - name: Run Vitest tests
+        run: pnpm run test               # Run Jest tests with pnpm
+
+      - name: Run Cypress tests
+        run: pnpm run cypress:run        # Run Cypress tests with pnpm
