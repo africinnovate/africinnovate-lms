@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Print .prettierignore contents
+        run: cat .prettierignore
+
       - name: Run ESLint
         run: |
           cd apps/frontend
