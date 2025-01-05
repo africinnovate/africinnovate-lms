@@ -38,3 +38,4 @@ __tests__/
 *.spec.ts
 apps/frontend/package-lock.json
 apps/frontend/package.json
+**/*.config.js
