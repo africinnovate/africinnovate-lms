@@ -1,9 +1,9 @@
 module.exports = {
   root: true,
-  extends: ['eslint:recommended', 'prettier'],
+  extends: ['eslint:recommended', 'prettier',],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
-  ignorePatterns: ['dist/', 'node_modules/'],
+  ignorePatterns: ['dist/', 'node_modules/',],
   settings: {
     next: {
       rootDir: ['apps/*/'],
