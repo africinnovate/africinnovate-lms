@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface IThemeState {
-  themeState: boolean
+  themeState: boolean,
 }
 
 const initialState: IThemeState = {

@@ -1,6 +1,9 @@
 'use client'
 import { useRef } from 'react'
-import { makeStore, AppStore } from '@/lib/store'
+import { 
+  makeStore,
+  AppStore,
+} from '@/lib/store'
 import { setThemeState } from '@/lib/features/theme/themeSlice'
 import { Provider } from 'react-redux'
 import { persistStore } from 'redux-persist'

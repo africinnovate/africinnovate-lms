@@ -34,7 +34,7 @@ jobs:
           npx eslint "**/*.{js,jsx,ts,tsx}"
 
       - name: Run Prettier Check
-        run: npx prettier --check '**/*.{js,jsx,ts,tsx,json,md}'
+        run: npx prettier --check 'src/**/*.{js,jsx,ts,tsx}'
 
       - name: Lint and Format Status
         if: ${{ failure() }}

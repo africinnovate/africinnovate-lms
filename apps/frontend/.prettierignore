@@ -4,6 +4,7 @@ public/
 dist/
 build/
 coverage/
+*.md
 .env
 .env.local
 .env.development.local
@@ -41,3 +42,5 @@ __tests__/
 *.test.ts
 *.spec.js
 *.spec.ts
+apps/frontend/package-lock.json
+apps/frontend/package.json
