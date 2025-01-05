@@ -35,7 +35,9 @@ jobs:
         run: pnpm install
 
       - name: Run Vitest tests
-        run: pnpm run test               # Run Jest tests with pnpm
+        run: |
+        cd apps/frontend
+        pnpm run test               # Run Jest tests with pnpm
 
       - name: Run Cypress tests
         run: pnpm run cypress:run        # Run Cypress tests with pnpm
