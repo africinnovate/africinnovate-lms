@@ -34,7 +34,7 @@ jobs:
           npx eslint "**/*.{js,jsx,ts,tsx}"
 
       - name: Run Prettier Check
-        run: npx prettier --check '**/*.{js,jsx,ts,tsx} --ignore-path .eslintignore'
+        run: npx prettier --check '**/*.{js,jsx,ts,tsx} --ignore-path .prettierignore'
 
       - name: Lint and Format Status
         if: ${{ failure() }}
