@@ -28,6 +28,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install dependencies       # Run pnpm install if cache is not found
         run: pnpm install
 
