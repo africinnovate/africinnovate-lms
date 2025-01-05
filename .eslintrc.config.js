@@ -8,7 +8,7 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
-  ignores: ['dist/', 'node_modules/', '.eslintrc.config.js'],
+  ignores: ['dist/', 'node_modules/'],
   settings: {
     next: {
       rootDir: ['apps/*/'],
