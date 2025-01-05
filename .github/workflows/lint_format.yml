@@ -1,39 +1,48 @@
 name: Lint and Format
 
 on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
   pull_request:
-    branches: [ main, dev ]
-    
+    branches:
+      - main
+
 jobs:
-  lint:
+  lint-and-format:
     runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-        cache: 'pnpm'
 
-    - name: Install pnpm
-      run: npm install -g pnpm
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
         
-    - name: Install dependencies
-      run: pnpm install
-      
-    - name: Check Prettier formatting
-      run: pnpm run format:check
-      
-    - name: Run ESLint
-      run: pnpm run lint
-      env:
-        CI: true
+      - name: Install dependencies
+        run: pnpm install
 
-lint-fail:
-    if: ${{ failure() }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Lint or Prettier Failed
-        run: echo "Lint or Prettier check failed. Please fix the issues and push the changes."
+      - name: Print .prettierignore contents
+        run: cat apps/frontend/.prettierignore
+
+      - name: Run ESLint
+        run: |
+          cd apps/frontend
+          npx eslint "**/*.{js,jsx,ts,tsx}"
+
+      - name: Run Prettier Check
+        run: npx prettier --check '**/*.{js,jsx,ts,tsx}' --ignore-path apps/frontend/.prettierignore
+
+      - name: Lint and Format Status
+        if: ${{ failure() }}
+        run: echo "Lint or format check failed. Please fix the issues."
+
+      - name: Fail if issues found
+        if: ${{ failure() }}
+        run: exit 1

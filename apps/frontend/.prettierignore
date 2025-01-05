@@ -4,6 +4,7 @@ public/
 dist/
 build/
 coverage/
+*.md
 .env
 .env.local
 .env.development.local
@@ -29,15 +30,12 @@ logs/
 *.sublime-project
 *.sublime-workspace
 *.code-workspace
-*.config.ts
-*.config.js
-*.config.ts
-*.config.mjs
-*.config.cjs
-*.config.json
 tests/
 __tests__/
 *.test.js
 *.test.ts
 *.spec.js
 *.spec.ts
+apps/frontend/package-lock.json
+apps/frontend/package.json
+**/*.config.js
