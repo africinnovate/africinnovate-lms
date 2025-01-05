@@ -2,21 +2,21 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface IThemeState {
-  themeState: boolean,
+	themeState: boolean
 }
 
 const initialState: IThemeState = {
-  themeState: false,
+	themeState: false,
 }
 
 export const themeSlice = createSlice({
-  name: 'theme',
-  initialState,
-  reducers: {
-    setThemeState: (state, action: PayloadAction<boolean>) => {
-      state.themeState = action.payload
-    },
-  },
+	name: 'theme',
+	initialState,
+	reducers: {
+		setThemeState: (state, action: PayloadAction<boolean>) => {
+			state.themeState = action.payload
+		},
+	},
 })
 
 export const { setThemeState } = themeSlice.actions
