@@ -29,7 +29,9 @@ jobs:
         run: pnpm install
 
       - name: Run ESLint
-        run: npx eslint "**/*.{js,jsx,ts,tsx}"
+        run: |
+          cd app/frontend
+          npx eslint "**/*.{js,jsx,ts,tsx}"
 
       - name: Run Prettier Check
         run: npx prettier --check '**/*.{js,jsx,ts,tsx,json,md}'
