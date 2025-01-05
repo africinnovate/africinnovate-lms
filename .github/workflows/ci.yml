@@ -36,7 +36,7 @@ jobs:
 
       - name: Run Vitest tests
         run: |
-        cd apps/frontend
+        # cd apps/frontend
         pnpm run test
 
       - name: Run Cypress tests
