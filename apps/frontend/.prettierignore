@@ -30,12 +30,6 @@ logs/
 *.sublime-project
 *.sublime-workspace
 *.code-workspace
-*.config.ts
-*.config.js
-*.config.ts
-*.config.mjs
-*.config.cjs
-*.config.json
 tests/
 __tests__/
 *.test.js
