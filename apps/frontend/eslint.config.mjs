@@ -55,6 +55,7 @@ const eslintConfig = [
 			'*.test.ts',
 			'*.spec.js',
 			'*.spec.ts',
+      '**/*.config.js',
 		],
 	},
 ]
