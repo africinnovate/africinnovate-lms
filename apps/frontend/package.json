@@ -9,7 +9,7 @@
 		"lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
 		"lint:fix": "next lint --fix --dir src",
 		"format": "prettier --write .",
-		"format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'"
+		"format:check": "prettier --check '**/*.{js,jsx,ts,tsx}'"
 	},
 	"dependencies": {
 		"@mui/icons-material": "^6.2.1",
