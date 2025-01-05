@@ -14,16 +14,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2        # Checkout the code
+      - uses: actions/checkout@v2
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '20'
 
-      - name: Cache pnpm dependencies    # Caching pnpm store
+      - name: Cache pnpm dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.pnpm-store            # Path to pnpm cache store
+          path: ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}   # Cache key based on pnpm-lock.yaml
           restore-keys: |
             ${{ runner.os }}-pnpm-
@@ -31,13 +31,13 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Install dependencies       # Run pnpm install if cache is not found
+      - name: Install dependencies
         run: pnpm install
 
       - name: Run Vitest tests
         run: |
         cd apps/frontend
-        pnpm run test               # Run Jest tests with pnpm
+        pnpm run test
 
       - name: Run Cypress tests
-        run: pnpm run cypress:run        # Run Cypress tests with pnpm
+        run: pnpm run cypress:run
