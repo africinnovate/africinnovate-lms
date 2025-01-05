@@ -16,7 +16,7 @@ const eslintConfig = [
       "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/no-explicit-any": "off"
     },
-    ignorePatterns: [
+    ignores: [
       "node_modules", 
       ".next", 
       "public",
