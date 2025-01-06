@@ -9,7 +9,17 @@ export default defineConfig({
 		globals: true,
 		coverage: {
 			provider: 'v8', // Code coverage provider
-			reporter: ['text', 'html', 'json'], // Reporting formats
+			reporter: ['text', 'html', 'json'],
+			include: ['src/app/**/*'],
+			thresholds: {
+				global: {
+					statements: 75,
+					branches: 75,
+					functions: 75,
+					lines: 75,
+				},
+			},
+			enabled: true,
 		},
 		setupFiles: './vitest.setup.ts',
 		alias: {

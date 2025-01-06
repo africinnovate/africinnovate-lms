@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    # needs: lint-and-format
+    needs: [lint-and-format]
     runs-on: ubuntu-latest
 
     steps:

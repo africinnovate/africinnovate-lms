@@ -11,7 +11,7 @@
 		"format": "prettier --write .",
 		"format:check": "prettier --check '**/*.{js,jsx,ts,tsx}'",
 		"test": "vitest",
-		"coverage": "vitest run --coverage"
+		"test:coverage": "vitest run --coverage"
 	},
 	"dependencies": {
 		"@mui/icons-material": "^6.2.1",
@@ -21,6 +21,7 @@
 		"react-charts": "^3.0.0-beta.57",
 		"react-dom": "^19.0.0",
 		"react-redux": "^9.2.0",
+		"redux-mock-store": "^1.5.5",
 		"redux-persist": "^6.0.0"
 	},
 	"devDependencies": {
@@ -31,6 +32,7 @@
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"@types/redux-mock-store": "^1.5.0",
 		"@typescript-eslint/eslint-plugin": "^8.18.2",
 		"@typescript-eslint/parser": "^8.18.2",
 		"@vitejs/plugin-react": "^4.3.4",
