@@ -1,4 +1,5 @@
-name: Lint and Format
+
+name: Test Coverage Check
 
 on:
   push:
@@ -9,9 +10,12 @@ on:
     branches:
       - main
       - dev
+    paths:
+      - 'apps/frontend/**'
+      - '.github/workflows/coverage.yml'
 
 jobs:
-  lint-and-format:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,25 +35,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-
       - name: Install pnpm
         run: npm install -g pnpm
-        
+
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run ESLint
-        run: |
-          cd apps/frontend
-          npx eslint "**/*.{js,jsx,ts,tsx}"
-
-      - name: Run Prettier Check
-        run: npx prettier --check '**/*.{js,jsx,ts,tsx}' --ignore-path apps/frontend/.prettierignore
-
-      - name: Lint and Format Status
-        if: ${{ failure() }}
-        run: echo "Lint or format check failed. Please fix the issues."
-
-      - name: Fail if issues found
-        if: ${{ failure() }}
-        run: exit 1
+      - name: Run test coverage
+        working-directory: apps/frontend
+        run: pnpm run test:coverage
