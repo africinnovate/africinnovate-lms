@@ -1,0 +1,55 @@
+name: Lint and Format
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store              # Path to pnpm cache store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}   # Cache key based on pnpm-lock.yaml
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+        
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run ESLint
+        run: |
+          cd apps/frontend
+          npx eslint "**/*.{js,jsx,ts,tsx}"
+
+      - name: Run Prettier Check
+        run: npx prettier --check '**/*.{js,jsx,ts,tsx}' --ignore-path apps/frontend/.prettierignore
+
+      - name: Lint and Format Status
+        if: ${{ failure() }}
+        run: echo "Lint or format check failed. Please fix the issues."
+
+      - name: Fail if issues found
+        if: ${{ failure() }}
+        run: exit 1
