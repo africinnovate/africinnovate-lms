@@ -19,9 +19,6 @@ The frontend is built using [Next.js](https://nextjs.org/) and makes use of the 
 Here is a link to the [design](https://www.figma.com/design/aThOHBUGRCxw3czExDMGF3/Africinnovate?node-id=0-1&p=f&t=rYJOmHKxDSSAI4ev-0)
 
 
-## Contributing Guide
-- Fork the repo
-- Clone your fork repo
-- Create a working branch for each feature
-- make PR to [the dev branch](https://github.com/africinnovate/africinnovate-lms.git) 
-- To contribute to the frontend app navigate to this directory `apps/frontend`
+## Contributors
+
+We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to get started.
