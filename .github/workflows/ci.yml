@@ -1,0 +1,41 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - edited
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markdownlint:
+    name: Markdown Linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout EIP Repository
+        uses: actions/checkout@47fbe2df0ad0e27efb67a70beac3555f192b062f
+
+      - name: Get Changed Files
+        id: changed
+        continue-on-error: true
+        run: |
+          echo "CHANGED_FILES<<EOF" >> $GITHUB_ENV
+          gh pr diff ${{ github.event.number }} --name-only | grep -E '\.md$' >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lint
+        uses: DavidAnson/markdownlint-cli2-action@f5cf187ef11bd3a68a127321b794aa252ff23019
+        if: steps.changed.outcome == 'success'
+        with:
+          command: config
+          globs: |
+            config/.markdownlint.yaml
+            ${{ env.CHANGED_FILES }}
